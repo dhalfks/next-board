@@ -53,9 +53,6 @@ Header 메뉴
     => table > title 부분에 링크 생성 => 라우트 설정
     => 하단 버튼 home(/),  add(/board/write) 
 
-
-
-
 --------------------------------------------
 DB 연결
 
@@ -79,3 +76,12 @@ api 경로 => 서버로 DB 자료를 요청  /api/board
     api > board > route.ts
 - boardDetail => /api/board/[id]
     api > board > [id] > route.ts
+
+------------------------------------------
+6. components > board > boardList  => /api/board  => method GET (요청)
+    => 구성한 샘플데이터 => 서버의 요청으로 변경
+    => useEffect() api로 서버에 boardList 요청 => 출력
+
+7. board > write > page.tsx  글쓰기 페이지 => /board/write
+    => 컴포넌트 생성 
+    =>/api/board  => method POST (등록)
