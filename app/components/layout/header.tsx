@@ -6,8 +6,8 @@ export default function Header(){
             <nav className="container mx-auto flex justify-between">
                 <div><Link href={"/"}> NEXT-BOARD </Link></div>
                 <div className="space-x-5">
-                    <Link href={"/"}>글쓰기</Link>
-                    <Link href={"/"}>게시글보기</Link>
+                    <Link href={"/board/write"}>글쓰기</Link>
+                    <Link href={"/board"}>게시글보기</Link>
                 </div>
             </nav>
         </div>

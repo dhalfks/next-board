@@ -35,3 +35,20 @@ Header 메뉴
 
 2. layout 구성하기 
     => components > layout > header.tsx / footer.tsx 삽입 > 컴포넌트 작성
+
+3. data.ts => 샘플데이터 넣기 
+
+4. type.ts => 데이터 타입 선언
+
+- 라우팅 경로
+    /  => home
+    /board => boardList
+    /board/[id] => 상세페이지
+    /board/write => 글쓰기페이지
+    /board/[id]/modify => 수정페이지
+
+
+5. components > board > boardList.tsx 생성
+    => data.ts => BoardList 구성
+    => table > title 부분에 링크 생성 => 라우트 설정
+    => 하단 버튼 home(/),  add(/board/write) 
