@@ -52,3 +52,30 @@ Header 메뉴
     => data.ts => BoardList 구성
     => table > title 부분에 링크 생성 => 라우트 설정
     => 하단 버튼 home(/),  add(/board/write) 
+
+
+
+
+--------------------------------------------
+DB 연결
+
+.env 파일 작성 규칙 : 환경변수를 관리하는 파일
+react에서는 변수명 REACT_APP_ 로 시작되어야 한다.
+
+next 에서는 변수명 NEXT_PUBLIC_ 접두사가 필요
+변수명과 변수값 사이에는 공백 또는 따옴표 ("") 가 존재해서는 안된다.
+변수명은 대문자로 쓰는것이 관계이다.
+
+파일은 프로젝트 폴더에 생성 => .env.local
+
+lib > db.ts 파일 생성
+    DB 설정 사항 작성
+    => .env.local 자동으로 호출
+    => .env.local 은 숨김파일로 git에 올라가지 않고 파일을 참조해서 사용
+    => api key, password, 서버URL  숨겨야 되는 내용을 관리
+
+api 경로 => 서버로 DB 자료를 요청  /api/board
+- boardList => /api/board
+    api > board > route.ts
+- boardDetail => /api/board/[id]
+    api > board > [id] > route.ts

@@ -2,14 +2,32 @@
 import { boardList } from "@/app/data/data";
 import { boardType } from "@/app/type/boardType";
 import Link from "next/link";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function BoardList(){
 
     // data.ts에서 sample data 가져와서 출력
     // 각 게시글 마다 Link 달기
 
-    const [board, setBoard] = useState<boardType[] | []>(boardList);
+    const [board, setBoard] = useState<boardType[] | []>([]);
+
+    // DB에서 데이터 가져오기
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            try {
+                // get 요청
+                const response = await fetch('/api/board');
+                const data = await response.json();
+                setBoard(data);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchData();
+    },[]);
+
+    if(!board) return <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">Not found!!!</div>
+
 
     return(
         <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
