@@ -21,3 +21,7 @@ export async function GET() {
         return NextResponse.json({error:e.message},{status: 500})
     }
 }
+
+// 2. 게시글 등록 POST
+//  /api/board 경로로 오는 POST 요청을 처리
+
