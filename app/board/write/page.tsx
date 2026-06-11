@@ -41,6 +41,7 @@ export default function Write(){
             },
             body: JSON.stringify(form)
         });
+        console.log(response);
 
         // 보낸다음에 가야하는 경로
         window.location.href = "/board";

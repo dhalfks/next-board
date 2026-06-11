@@ -1,7 +1,7 @@
 // GET / POST / PUT / DELETE (화면이 대상)
 
 import db from "@/app/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // GET : 화면으로 데이터를 가져오기 (화면에서 데이터 요청)
 // POST : 화면에서 데이터 보내기 (화면에서 데이터 전송)
@@ -24,4 +24,18 @@ export async function GET() {
 
 // 2. 게시글 등록 POST
 //  /api/board 경로로 오는 POST 요청을 처리
+export async function POST(req: NextRequest) {
+    try {
+        const {title, writer, contents} = await req.json();
+        const [result] = await db.query(
+            'INSERT INTO board(title, writer, contents) VALUES(?,?,?)',
+            [title, writer, contents]
+        );
+        console.log(result);
+        return NextResponse.json({message:'게시글 등록 성공!!', result}, {status: 200})
+        
+    } catch (e : any) {
+        return NextResponse.json({error:e.message},{status: 500})
+    }
+}
 
