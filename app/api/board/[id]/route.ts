@@ -29,3 +29,19 @@ export async function GET(_:NextRequest, {params}:{params : {id:string}}) {
         return NextResponse.json({error:e.message},{status: 500})
     }
 }
+
+export async function PUT(req: NextRequest, {params}:{params: {id:string}}) {
+    try {
+        const {title, contents} = await req.json();
+        const {id} = await params;
+
+        await db.query('UPDATE board SET title=?, contents=? WHERE id=?',[title, contents, id]);
+
+        return NextResponse.json({message:'게시글 수정 성공!!'},{status:200});
+        
+    } catch (e:any) {
+        console.log(e);
+        return NextResponse.json({error:e.message},{status: 500});
+    }
+    
+}
