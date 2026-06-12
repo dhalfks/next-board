@@ -91,3 +91,17 @@ api 경로 => 서버로 DB 자료를 요청  /api/board
     => 컴포넌트 생성
     => /api/board/[id] => method GET (요청)
     => useEffect() 가져온 게시글 => 출력
+    => 하단 수정, 삭제 버튼 생성
+
+9. board > [id] > modify > page.tsx  수정 페이지 
+    => 컴포넌트 생성
+    => /api/board/[id] => method GET (요청)
+    => useEffect() 가져온 게시글 => 출력
+    => 입력한 값을 useState로 구성하여 수정 객체 생성 => api로 전송
+    => /api/board/[id] => method PUT (수정)
+    => 하단 완료 페이지에 onClick으로 실행
+
+10. 삭제 버튼 구현
+    => 상세 페이지 하단에서 함수로 구현
+    => 삭제 버튼에 onClick으로 실행
+    => /api/board/[id] => method DELETE (삭제)
