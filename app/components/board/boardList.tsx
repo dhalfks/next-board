@@ -49,7 +49,7 @@ export default function BoardList(){
                                     className="border border-gray-300 text-xl text-center h-10">
                                     <td className="w-20 text-base">{b.id}</td>
                                     <td className="w-200 text-base">
-                                        <Link href={"/"} className="hover:underline">{b.title}</Link>
+                                        <Link href={`/board/${b.id}`} className="hover:underline">{b.title}</Link>
                                     </td>
                                     <td className="w-50 text-base">{b.writer}</td>
                                     <td className="w-100 text-sm">{b.reg_date}</td>

@@ -84,4 +84,10 @@ api 경로 => 서버로 DB 자료를 요청  /api/board
 
 7. board > write > page.tsx  글쓰기 페이지 => /board/write
     => 컴포넌트 생성 
+    => useState() 입력값을 board 객체로 생성 => 비동기 전송
     =>/api/board  => method POST (등록)
+
+8. board > [id] > page.tsx  상세 페이지 => /board/[id]
+    => 컴포넌트 생성
+    => /api/board/[id] => method GET (요청)
+    => useEffect() 가져온 게시글 => 출력
