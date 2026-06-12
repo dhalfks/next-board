@@ -52,7 +52,9 @@ export default function BoardList(){
                                         <Link href={`/board/${b.id}`} className="hover:underline">{b.title}</Link>
                                     </td>
                                     <td className="w-50 text-base">{b.writer}</td>
-                                    <td className="w-100 text-sm">{b.reg_date}</td>
+                                    <td className="w-100 text-sm">
+                                        {b.reg_date.substring(0, b.reg_date.lastIndexOf("T"))} / {b.reg_date.substring(b.reg_date.indexOf('T')+1, b.reg_date.lastIndexOf('.'))}
+                                    </td>
                                 </tr>
                             ))
                         }

@@ -48,8 +48,8 @@ export default function BoardDetail(){
                     <div className="p-15">
                         <h2 className="text-xl font-semibold mb-4">{board.id}. {board.title}</h2>
                         <p className="text-xs m-5"
-                        >{board.reg_date.substring(0, board.reg_date.lastIndexOf("T"))} {board.reg_date.substring(board.reg_date.indexOf('T')+1, board.reg_date.lastIndexOf('.'))}</p>
-                        <p className="text-gray-800 text-base m-5">{board.contents}</p>
+                        >{board.reg_date.substring(0, board.reg_date.lastIndexOf("T"))} / {board.reg_date.substring(board.reg_date.indexOf('T')+1, board.reg_date.lastIndexOf('.'))}</p>
+                        <textarea cols={30} rows={10} value={board.contents} readOnly className="w-full outline-none text-gray-800 text-base m-5"></textarea>
                     </div>
                     <div className="p-4 border-t text-sm text-gray-600">
                         create on {board.reg_date.substring(0, board.reg_date.lastIndexOf('T'))} by {board.writer}
@@ -57,9 +57,13 @@ export default function BoardDetail(){
                 </div>
                 <div className="text-center">
                     <button className="bg-blue-500 text-white px-4 py-2 rounded m-2 hover:bg-blue-700"
-                    ><Link href={"/board"}>list</Link></button>
+                    >
+                        <Link href={"/board"}>list</Link>
+                    </button>
                     <button className="bg-amber-500 text-white px-4 py-2 rounded m-2 hover:bg-amber-700"
-                    ><Link href={`/board/${board.id}`}>modify</Link></button>
+                    >
+                        <Link href={`/board/${board.id}/modify`}>modify</Link>
+                    </button>
                     <button className="bg-red-500 text-white px-4 py-2 rounded m-2 hover:bg-red-700"
                     >delete</button>
 
