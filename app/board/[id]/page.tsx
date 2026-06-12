@@ -1,6 +1,7 @@
 "use client"
 
 import { boardType } from "@/app/type/boardType";
+import Link from "next/link";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
 
@@ -41,10 +42,29 @@ export default function BoardDetail(){
     return(
         <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
             <main className="flex flex-1 w-full max-w-5xl flex-col py-15 px-16 bg-white dark:bg-black sm:items-start">
-                <h1 className="text-3xl text-bold">{idx}번 게시글</h1>
+                <h1 className="text-2xl text-bold mb-5">{idx}번 게시글</h1>
 
-                {board.contents}
-                
+                <div className="w-4/5 my-10 bg-white shadow-lg rounded-lg border berder-bray-200">
+                    <div className="p-15">
+                        <h2 className="text-xl font-semibold mb-4">{board.id}. {board.title}</h2>
+                        <p className="text-xs m-5"
+                        >{board.reg_date.substring(0, board.reg_date.lastIndexOf("T"))} {board.reg_date.substring(board.reg_date.indexOf('T')+1, board.reg_date.lastIndexOf('.'))}</p>
+                        <p className="text-gray-800 text-base m-5">{board.contents}</p>
+                    </div>
+                    <div className="p-4 border-t text-sm text-gray-600">
+                        create on {board.reg_date.substring(0, board.reg_date.lastIndexOf('T'))} by {board.writer}
+                    </div>
+                </div>
+                <div className="text-center">
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded m-2 hover:bg-blue-700"
+                    ><Link href={"/board"}>list</Link></button>
+                    <button className="bg-amber-500 text-white px-4 py-2 rounded m-2 hover:bg-amber-700"
+                    ><Link href={`/board/${board.id}`}>modify</Link></button>
+                    <button className="bg-red-500 text-white px-4 py-2 rounded m-2 hover:bg-red-700"
+                    >delete</button>
+
+                </div>
+
             </main>
         </div>
     )
